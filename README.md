@@ -3,7 +3,7 @@
 TBA
 
 ## Project Management
-We use [Teams](https://github.com/orgs/tomeshnet/teams/toronto-community-network/teams) to manage membership of working groups and [Projects](https://github.com/tomeshnet/mesh-deployment/projects/1) to track task status on a public project board.
+We use [Teams](https://github.com/orgs/tomeshnet/teams/toronto-community-network/teams) to manage membership of working groups and [Projects](https://github.com/tomeshnet/toronto-community-network/projects/1) to track task status on a public project board.
 These are our current [working groups](https://github.com/orgs/tomeshnet/teams/toronto-community-network/teams).
 
 ### Communications and Community Engagement [:busts_in_silhouette:](https://github.com/orgs/tomeshnet/teams/communications-and-community-engagement)
@@ -13,7 +13,7 @@ Connect with people living and working in the areas served by the network(s), in
 |:-----------|:--|
 | Meetings   | TBA |
 | Chat       | [#deployment:tomesh.net](https://chat.tomesh.net/#/room/#deployment:tomesh.net) |
-| Tasks      | [`Communications`](https://github.com/tomeshnet/mesh-deployment/projects/1?card_filter_query=label%3ACommunications) label |
+| Tasks      | [`communications`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Acommunications) label |
 
 ### Network Planning, Design and Operations [:busts_in_silhouette:](https://github.com/orgs/tomeshnet/teams/network-planning-design-and-operations)
 Plan, design, implement and maintain a well-functioning community network.
@@ -22,7 +22,7 @@ Plan, design, implement and maintain a well-functioning community network.
 |:-----------|:--|
 | Meetings   | TBA |
 | Chat       | [#deployment:tomesh.net](https://chat.tomesh.net/#/room/#deployment:tomesh.net) |
-| Tasks      | [`Network`](https://github.com/tomeshnet/mesh-deployment/projects/1?card_filter_query=label%3ANetwork) label |
+| Tasks      | [`network`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Anetwork) label |
 
 ### Organizational and Program Governance [:busts_in_silhouette:](https://github.com/orgs/tomeshnet/teams/organizational-and-program-governance)
 Develop administrative processes ensuring Toronto Mesh meets their commitments.
@@ -34,7 +34,7 @@ Formalize relationships and agreements with and within the community network.
 |:-----------|:--|
 | Meetings   | TBA |
 | Chat       | [#deployment:tomesh.net](https://chat.tomesh.net/#/room/#deployment:tomesh.net) |
-| Tasks      | [`Governance`](https://github.com/tomeshnet/mesh-deployment/projects/1?card_filter_query=label%3AGovernance) label |
+| Tasks      | [`governance`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Agovernance) label |
 
 ### Project Operations [:busts_in_silhouette:](https://github.com/orgs/tomeshnet/teams/project-operations)
 Assist in organizing and removing barriers to the completion of work - including projects involving production of a funding application, design and deployment of network equipment, convening of meetings and workshops, etc.
@@ -43,7 +43,7 @@ Assist in organizing and removing barriers to the completion of work - including
 |:-----------|:--|
 | Meetings   | TBA |
 | Chat       | [#deployment:tomesh.net](https://chat.tomesh.net/#/room/#deployment:tomesh.net) |
-| Tasks      | [`Operations`](https://github.com/tomeshnet/mesh-deployment/projects/1?card_filter_query=label%3AOperations) label |
+| Tasks      | [`operations`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Aoperations) label |
 
 ---
 
