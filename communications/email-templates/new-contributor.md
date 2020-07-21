@@ -1,5 +1,6 @@
 ---
 Subject: Contributing to the Toronto Community Network
+Cc: communications@tomesh.net
 Reply-To: operations@tomesh.net
 ---
 
