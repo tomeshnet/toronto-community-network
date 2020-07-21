@@ -27,3 +27,6 @@ The Toronto Community Network project is run by four working groups, which you c
 - This is a lot of information and I don't know how to do ______ but I still want to contribute! Just send a message to operations@tomesh.net and we can peer you up with a member to walk through our tools and workflow.
 
 Let's Mesh!
+
+Communications and Community Engagement  
+Toronto Community Network
