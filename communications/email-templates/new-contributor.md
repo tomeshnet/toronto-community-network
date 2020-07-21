@@ -25,7 +25,7 @@ The Toronto Community Network project is run by four working groups, which you c
 
 - Join our chat! It's a great way to stay connected with the many members of Toronto Mesh and the quickest way to get questions answered. We run a Matrix chat server with many active rooms, [follow the instructions on our website to join](https://tomesh.net/get-involved/).
 - Join our [mailing list](https://lists.hypha.coop/cgi-bin/mailman/listinfo/tomeshnet) and come to our regular [Meet and Greet](https://tomesh.net/events/) and other events.
-- This is a lot of information and I don't know how to do ______ but I still want to contribute! Just send a message to operations@tomesh.net and we can peer you up with a member to walk through our tools and workflow.
+- "This is a lot of information and I don't know how to do ______ but I still want to contribute!" Just send a message to operations@tomesh.net and we can peer you up with a member to walk through our tools and workflow.
 
 Let's Mesh!
 
