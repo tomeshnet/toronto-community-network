@@ -12,7 +12,7 @@ The Toronto Community Network project is run by four working groups, which you c
 
 **Step 1** We use GitHub as a place to keep our files, and to track who is working on which project tasks. You can find tasks associated with each working group [here](https://github.com/tomeshnet/toronto-community-network/projects/1) for an idea of how this works. Please register on GitHub and send us your username so we can invite you to the working group(s).
 
-**Step 2** The most important part of a community network is the community, and we'd like to spend regular face time where possible, to hang out and to work together. Please indicate your general availablity for standing meetings for the working group(s) where you would like to partcipate:
+**Step 2** The most important part of a community network is the community, and we'd like to spend regular face time where possible, to hang out and to work together. Please indicate your general availability for standing meetings for the working group(s) where you would like to participate:
 
 - [Communications and Community Engagement](https://www.when2meet.com/?9397727-snnPz)
 - [Network Planning, Design and Operations](https://www.when2meet.com/?9397732-hLOdX)
