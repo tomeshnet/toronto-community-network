@@ -11,7 +11,7 @@ Connect with people living and working in the areas served by the network(s), in
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | TBA |
+| Meetings    | Sunday 3pm ET weekly ([time poll](https://www.when2meet.com/?9397727-snnPz)) |
 | Group Email | communications@tomesh.net |
 | Chat        | [#deployment:tomesh.net](https://chat.tomesh.net/#/room/#deployment:tomesh.net) |
 | Tasks       | [`communications`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Acommunications) label |
@@ -22,7 +22,7 @@ Plan, design, implement and maintain a well-functioning community network.
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | TBA |
+| Meetings    | Thursday 5pm ET biweekly ([time poll](https://www.when2meet.com/?9397732-hLOdX)) |
 | Group Email | network@tomesh.net |
 | Chat        | [#deployment:tomesh.net](https://chat.tomesh.net/#/room/#deployment:tomesh.net) |
 | Tasks       | [`network`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Anetwork) label |
@@ -35,7 +35,7 @@ Formalize relationships and agreements with and within the community network.
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | TBA |
+| Meetings    | Saturday 1pm ET biweekly ([time poll](https://www.when2meet.com/?9397736-b9JNO)) |
 | Group Email | governance@tomesh.net |
 | Chat        | [#deployment:tomesh.net](https://chat.tomesh.net/#/room/#deployment:tomesh.net) |
 | Tasks       | [`governance`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Agovernance) label |
@@ -45,7 +45,7 @@ Assist in organizing and removing barriers to the completion of work - including
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | TBA |
+| Meetings    | Saturday 12pm ET biweekly ([time poll](https://www.when2meet.com/?9397742-spOMQ)) |
 | Group Email | operations@tomesh.net |
 | Chat        | [#deployment:tomesh.net](https://chat.tomesh.net/#/room/#deployment:tomesh.net) |
 | Tasks       | [`operations`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Aoperations) label |
