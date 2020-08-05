@@ -1,6 +1,11 @@
 # Toronto Community Network
 
-TBA
+>Community networks are networks collectively owned and managed by the community for non-profit and community purposes. They are constituted by collectives, indigenous communities or non-profit civil society organizations that exercise their right to communicate, under the principles of democratic participation of their members, equity, gender equality, diversity and plurality.
+>
+>– Cumbre Latinoamericana de Redes Comunitarias, Argentina 2018
+
+We are building a community network in Toronto alongside our collaborators.
+See our [proposal brief](https://github.com/tomeshnet/toronto-community-network/blob/master/operations/published-documents/Brief-v002.pdf) and [full in-draft proposal](https://github.com/tomeshnet/toronto-community-network/blob/master/operations/published-documents/proposal-draft-v003.pdf) for details.
 
 ## Project Management
 We use [Teams](https://github.com/orgs/tomeshnet/teams/toronto-community-network/teams) to manage membership of working groups and [Projects](https://github.com/tomeshnet/toronto-community-network/projects/1) to track task status on a public project board.
