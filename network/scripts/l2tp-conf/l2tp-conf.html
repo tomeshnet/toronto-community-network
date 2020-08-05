@@ -1,0 +1,125 @@
+<html>
+
+<body>
+    Exit Node IP:<input name="exitip" value="199.195.250.209"><br>
+    Client Node IP (External IP):<input name="clientip" value=""><br>
+    Client Node IP (Internal IP <i>Optional</i>):<input name="clientipint" value=""><br>
+
+
+    Index:<input name="index" value="1"><br>
+    <br>
+    <input type="button" onclick="fill()" value="Fill Details"><br>
+    <hr>
+    Interface Name:<input name="int" value="l2tpeth0"><br>
+
+    Tunnel ID (EXIT):<input name="tunnelServer" value="3000"><br>
+    Tunnel ID (CLIENT):<input name="tunnelClient" value="4000"><br>
+    Session ID (EXIT):<input name="sessionServer" value="1000"><br>
+    SESSION ID (CLIENT):<input name="sessionclient" value="2000"><br>
+
+
+    UDP EXIT:<input name="udpServer" value="5000"><br>
+    UDP CLIENT:<input name="udpClient" value="6000"><br>
+
+    EXIT TUNNEL IPv4:<input name="ipv4" value=""><br>
+    EXIT TUNNEL IPv6:<input name="ipv6" value=""><br>
+    CLINET TUNNEL IPv4:<input name="ipv4Client" value=""><br>
+    CLIENT TUNNEL IPv6:<input name="ipv6Client" value=""><br>
+    <br>
+    <hr>
+    <input type="button" onclick="generateConf()" value="Generate Config">
+    <br>
+    <br>
+    SERVER<br>
+    <pre id="SERVER"></pre>
+    CLIENT<br>
+    <pre id="CLIENT"></pre>
+
+    <script>
+        function fill() {
+
+            // set fields as variables
+            index = parseInt(document.getElementsByName("index")[0].value);
+            interface = document.getElementsByName("int")[0];
+            tunnelServer = document.getElementsByName("tunnelServer")[0];
+            tunnelClient = document.getElementsByName("tunnelClient")[0];
+            sessionServer = document.getElementsByName("sessionServer")[0];
+            sessionClient = document.getElementsByName("sessionClient")[0];
+            udpServer = document.getElementsByName("udpServer")[0];
+            udpClient = document.getElementsByName("udpClient")[0];
+            ipv4 = document.getElementsByName("ipv4")[0];
+            ipv6 = document.getElementsByName("ipv6")[0];
+            ipv4Client = document.getElementsByName("ipv4Client")[0];
+            ipv6Client = document.getElementsByName("ipv6Client")[0];
+
+            // Interfaces is l2tpeth<INDEX>
+            interface.value = "l2tpeth" + index;
+
+            // Set tunnelIDs for server and client
+            tunnelServer.value = 3000 + index;
+            tunnelClient.value = 4000 + index;
+            // Set sessionIDs for server and client
+            sessionServer.value = 1000 + index;
+            sessionClient.value = 2000 + index;
+
+            // Set udp ports for server and client
+            udpServer.value = 5000 + index;
+            udpClient.value = 6000 + index;
+
+            // Calculate IPv4 and IPv6 addressed based on index
+            IP1 = index * 4 + 1;
+            IP2 = index * 4 + 2;
+
+            ipv4.value = "100.127.2." + IP1 + "/30";
+            ipv6.value = "fd74:6f6d:7368:7f02::" + IP1.toString(16) + "/126";
+
+            ipv4Client.value = "100.127.2." + IP2 + "/30";
+            ipv6Client.value = "fd74:6f6d:7368:7f02::" + IP2.toString(16) + "/126";
+
+        }
+        function generateConf() {
+
+            // set fields as variables
+            interface = document.getElementsByName("int")[0];
+            exitip = document.getElementsByName("exitip")[0];
+            clientip = document.getElementsByName("clientip")[0];
+            clientipint = document.getElementsByName("clientipint")[0];
+            tunnelServer = document.getElementsByName("tunnelServer")[0];
+            tunnelClient = document.getElementsByName("tunnelClient")[0];
+            sessionServer = document.getElementsByName("sessionServer")[0];
+            sessionClient = document.getElementsByName("sessionClient")[0];
+            udpServer = document.getElementsByName("udpServer")[0];
+            udpClient = document.getElementsByName("udpClient")[0];
+            ipv4 = document.getElementsByName("ipv4")[0];
+            ipv6 = document.getElementsByName("ipv6")[0];
+            ipv4Client = document.getElementsByName("ipv4Client")[0];
+            ipv6Client = document.getElementsByName("ipv6Client")[0];
+
+            // Build server config
+            s = "ip l2tp delete tunnel tunnel_id " + tunnelServer.value + "\n";
+            s += "sleep 2\n";
+            s += "ip l2tp add tunnel tunnel_id " + tunnelServer.value + " peer_tunnel_id " + tunnelClient.value + " encap udp local " + exitip.value + " remote " + clientip.value + " udp_sport " + udpServer.value + " udp_dport " + udpClient.value + "\n";
+            s += "ip l2tp add session name " + interface.value + " tunnel_id " + tunnelServer.value + " session_id " + sessionServer.value + " peer_session_id " + sessionClient.value + "\n";
+            s += "ip link set " + interface.value + " up mtu 1412\n";
+            s += "ip addr add dev " + interface.value + " " + ipv4.value + "\n";
+            s += "ip addr add dev " + interface.value + " " + ipv6.value + "\n";
+
+            document.getElementById("SERVER").innerHTML = s;
+            var localIP = clientip.value;
+            if (clientipint.value) localIP = clientipint.value;
+
+            // Build client config
+            s = "ip l2tp delete tunnel tunnel_id " + tunnelClient.value + "\n";
+            s += "sleep 2\n";
+            s += "ip l2tp add tunnel tunnel_id " + tunnelClient.value + " peer_tunnel_id " + tunnelServer.value + " encap udp local " + localIP + " remote " + exitip.value + " udp_sport " + udpClient.value + " udp_dport " + udpServer.value + "\n";
+            s += "ip l2tp add session name " + interface.value + " tunnel_id " + tunnelClient.value + " session_id " + sessionClient.value + " peer_session_id " + sessionServer.value + "\n";
+            s += "ip link set " + interface.value + " up mtu 1412\n";
+            s += "ip addr add dev " + interface.value + " " + ipv4Client.value + "\n";
+            s += "ip addr add dev " + interface.value + " " + ipv6Client.value + "\n";
+            document.getElementById("CLIENT").innerHTML = s;
+
+        }
+    </script>
+</body>
+
+</html>
