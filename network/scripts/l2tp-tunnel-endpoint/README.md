@@ -18,5 +18,7 @@ Format:
 `0 000.000.000.000 XXXX`
 
 `0` - Index number from 0-63. This will inform the interface number and P2P subnet that will be generated
+
 `000.000.000.000` - IP address of FQDN of remote endpoint of tunnel
+
 `XXXX` - SINGLE WORD comment about the tunnel. Not used anywhere but for reference
