@@ -30,7 +30,7 @@ else:
     UNMS_HOST = "unms.tomesh.net"
 
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -59,7 +59,7 @@ def find_device_id_by_name(name, devices):
 
 def find_device_id_by_ip(ip, devices):
     for dev in devices:
-        if dev["ipAddress"].split('/')[0]  == ip:
+        if dev["ipAddress"].split('/')[0] == ip:
             return dev["identification"]["id"]
     return ""
 
@@ -80,7 +80,7 @@ def write_prometheus_data(target_id, devices, ifaces, writer):
         writer.write(string.encode()+b"\n")
 
     write('unms_exporter_version{version="' + VERSION + '"} 1')
-    
+
     for dev in devices:
         if dev["identification"]["id"] != target_id:
             continue
@@ -95,7 +95,7 @@ def write_prometheus_data(target_id, devices, ifaces, writer):
 
         if dev['overview'].get("signal") is not None:
             write("signal " + str(dev['overview']["signal"]))
-        
+
         if dev['overview'].get("downlinkCapacity") is not None:
             write("downlinkCapacity " + str(dev['overview']['downlinkCapacity']))
             write("uplinkCapacity " + str(dev['overview']['uplinkCapacity']))
@@ -136,23 +136,23 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
         params = parse_qs(parsed.query)
         if "target" in params:
             target = params["target"][-1]
-            type = "ip"
+            ttype = "ip"  # Target type
         elif "targetName" in params:
-            target= params["targetName"][-1]
-            type = "name"
+            target = params["targetName"][-1]
+            ttype = "name"
         else:
             self.send_error(400, explain="No target provided.")
             return
 
         try:
             devices = get_devices_json()
-            if type == "ip":
-               target_id = find_device_id_by_ip(target, devices)
-            if type == "name":
-               target_id = find_device_id_by_name(target, devices)
+            if ttype == "ip":
+                target_id = find_device_id_by_ip(target, devices)
+            elif ttype == "name":
+                target_id = find_device_id_by_name(target, devices)
 
             if target_id == "":
-                self.send_error(400, explain="Target name does not exist.")
+                self.send_error(400, explain="Provided target name/IP does not exist.")
                 return
 
             ifaces = get_ifaces_json(target_id)
