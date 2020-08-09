@@ -16,7 +16,7 @@ Connect with people living and working in the areas served by the network(s), in
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | Sunday 3pm ET weekly ([time poll](https://www.when2meet.com/?9397727-snnPz)) |
+| Meetings    | Sunday 3pm ET weekly ([`calendar`][calendar] [`iCal`][iCal] [`time poll`](https://www.when2meet.com/?9397727-snnPz)) |
 | Group Email | communications@tomesh.net |
 | Chat        | [#communications:tomesh.net](https://chat.tomesh.net/#/room/#communications:tomesh.net) |
 | Tasks       | [`communications`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Acommunications) label |
@@ -27,7 +27,7 @@ Plan, design, implement and maintain a well-functioning community network.
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | Thursday 5pm ET biweekly ([time poll](https://www.when2meet.com/?9397732-hLOdX)) |
+| Meetings    | Thursday 5pm ET weekly ([`calendar`][calendar] [`iCal`][iCal] [`time poll`](https://www.when2meet.com/?9397732-hLOdX)) |
 | Group Email | network@tomesh.net |
 | Chat        | [#network:tomesh.net](https://chat.tomesh.net/#/room/#network:tomesh.net) |
 | Tasks       | [`network`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Anetwork) label |
@@ -40,7 +40,7 @@ Formalize relationships and agreements with and within the community network.
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | Saturday 1pm ET biweekly ([time poll](https://www.when2meet.com/?9397736-b9JNO)) |
+| Meetings    | Saturday 1pm ET biweekly ([`calendar`][calendar] [`iCal`][iCal] [`time poll`](https://www.when2meet.com/?9397736-b9JNO)) |
 | Group Email | governance@tomesh.net |
 | Chat        | [#governance:tomesh.net](https://chat.tomesh.net/#/room/#governance:tomesh.net) |
 | Tasks       | [`governance`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Agovernance) label |
@@ -50,7 +50,7 @@ Assist in organizing and removing barriers to the completion of work - including
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | Saturday 12pm ET biweekly ([time poll](https://www.when2meet.com/?9397742-spOMQ)) |
+| Meetings    | Saturday 12pm ET biweekly ([`calendar`][calendar] [`iCal`][iCal] [`time poll`](https://www.when2meet.com/?9397742-spOMQ)) |
 | Group Email | operations@tomesh.net |
 | Chat        | [#operations:tomesh.net](https://chat.tomesh.net/#/room/#operations:tomesh.net) |
 | Tasks       | [`operations`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Aoperations) label |
@@ -62,3 +62,6 @@ If you would like to contribute to the _Toronto Community Network_ project, plea
 If you have general interest in our project and would like to stay connected, you can join the [Toronto Mesh mailing list](https://lists.hypha.coop/cgi-bin/mailman/listinfo/tomeshnet).
 
 In order to do our best work together we have a [Code of Conduct](https://tomesh.net/code-of-conduct/).
+
+[calendar]: https://calendar.google.com/calendar/embed?src=rtir6741jis1vovitm068jfob0%40group.calendar.google.com
+[iCal]: https://calendar.google.com/calendar/ical/rtir6741jis1vovitm068jfob0%40group.calendar.google.com/public/basic.ics
