@@ -63,6 +63,5 @@ If you have general interest in our project and would like to stay connected, yo
 
 In order to do our best work together we have a [Code of Conduct](https://tomesh.net/code-of-conduct/).
 
-[calendar]: https://calendar.google.com/calendar/embed?src=rtir6741jis1vovitm068jfob0%40group.calendar.google.com&ctz=Europe%2FMadrid
+[calendar]: https://calendar.google.com/calendar/embed?src=rtir6741jis1vovitm068jfob0%40group.calendar.google.com
 [iCal]: https://calendar.google.com/calendar/ical/rtir6741jis1vovitm068jfob0%40group.calendar.google.com/public/basic.ics
-
