@@ -27,7 +27,7 @@ Plan, design, implement and maintain a well-functioning community network.
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | Thursday 5pm ET biweekly ([`calendar`][calendar] [`iCal`][iCal] [`time poll`](https://www.when2meet.com/?9397732-hLOdX)) |
+| Meetings    | Thursday 5pm ET weekly ([`calendar`][calendar] [`iCal`][iCal] [`time poll`](https://www.when2meet.com/?9397732-hLOdX)) |
 | Group Email | network@tomesh.net |
 | Chat        | [#network:tomesh.net](https://chat.tomesh.net/#/room/#network:tomesh.net) |
 | Tasks       | [`network`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Anetwork) label |
