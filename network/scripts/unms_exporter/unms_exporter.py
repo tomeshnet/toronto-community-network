@@ -57,8 +57,14 @@ def find_device_id_by_name(name, devices):
             return dev["identification"]["id"]
     return ""
 
+def find_device_id_by_ip(ip, devices):
+    for dev in devices:
+        if dev["ipAddress"].split('/')[0]  == ip:
+            return dev["identification"]["id"]
+    return ""
 
-def write_prometheus_data(target, devices, ifaces, writer):
+
+def write_prometheus_data(target_id, devices, ifaces, writer):
     """
     Writes a string of prometheus data, using the passed JSON.
 
@@ -76,7 +82,7 @@ def write_prometheus_data(target, devices, ifaces, writer):
     write('unms_exporter_version{version="' + VERSION + '"} 1')
     
     for dev in devices:
-        if dev["identification"]["name"] != target:
+        if dev["identification"]["id"] != target_id:
             continue
 
         write('node_uname_info{nodename="' + dev['identification']['name'] + '", sysname="' +  dev['identification']['model'] + '", release="' +  dev['identification']['firmwareVersion'] + '"} 1')
@@ -108,7 +114,7 @@ def write_prometheus_data(target, devices, ifaces, writer):
             write('node_network_transmit_rate{device="' + name + '"} ' + str(iface["statistics"]["txrate"]))
             write('node_network_mtu_bytes{device="' + name + '"} ' + str(iface["mtu"]))
             write('node_network_dropped_total{device="' + name + '"} ' + str(iface["statistics"]["dropped"]))  # Not sure whether receive or transmit, or both
-        
+            
         # The target has been found and all data has been written
         break
 
@@ -128,15 +134,23 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
 
         # Verify target string
         params = parse_qs(parsed.query)
-        if "target" not in params:
+        if "target" in params:
+            target = params["target"][-1]
+            type = "ip"
+        elif "targetName" in params:
+            target= params["targetName"][-1]
+            type = "name"
+        else:
             self.send_error(400, explain="No target provided.")
             return
 
-        target = params["target"][-1]
-
+        print (target)
         try:
             devices = get_devices_json()
-            target_id = find_device_id_by_name(target, devices)
+            if type == "ip":
+               target_id = find_device_id_by_ip(target, devices)
+            if type == "name":
+               target_id = find_device_id_by_name(target, devices)
 
             if target_id == "":
                 self.send_error(400, explain="Target name does not exist.")
@@ -151,7 +165,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "text/plain")
         self.end_headers()
-        write_prometheus_data(target, devices, ifaces, self.wfile)
+        write_prometheus_data(target_id, devices, ifaces, self.wfile)
 
 
 def main():
