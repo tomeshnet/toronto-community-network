@@ -114,7 +114,7 @@ def write_prometheus_data(target_id, devices, ifaces, writer):
             write('node_network_transmit_rate{device="' + name + '"} ' + str(iface["statistics"]["txrate"]))
             write('node_network_mtu_bytes{device="' + name + '"} ' + str(iface["mtu"]))
             write('node_network_dropped_total{device="' + name + '"} ' + str(iface["statistics"]["dropped"]))  # Not sure whether receive or transmit, or both
-            
+        
         # The target has been found and all data has been written
         break
 
@@ -144,7 +144,6 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_error(400, explain="No target provided.")
             return
 
-        print (target)
         try:
             devices = get_devices_json()
             if type == "ip":
