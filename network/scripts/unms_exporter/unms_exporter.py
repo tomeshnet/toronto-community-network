@@ -122,6 +122,7 @@ def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
             write("ubnt_stationsCount " + str(dev['overview']['stationsCount']))
 
         if airmax.get("airmax") is not None:
+            mode=airmax['airmax']['wirelessMode']
             write("ubnt_noiseFloor " + str(airmax['airmax']['noiseFloor']))
             write("ubnt_wlanRxBytes " + str(airmax['airmax']['wlanRxBytes']))
             write("ubnt_wlanTxBytes " + str(airmax['airmax']['wlanTxBytes']))
@@ -132,12 +133,12 @@ def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
                 if int.get("stations") is not None:
 
                     for stn in int["stations"]:
-                        write("ubnt_station_uptime{name\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["uptime"]))
-                        write("ubnt_station_latency{name=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["latency"]))
-                        write("ubnt_station_rxBytes{name=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxBytes"]))
-                        write("ubnt_station_txBytes{name=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txBytes"]))
-                        write("ubnt_station_rxSignal{name=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxSignal"]))
-                        write("ubnt_station_txSignal{name=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txSignal"]))
+                        write("wireless_link_uptime{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["uptime"]))
+                        write("wireless_link_latency{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["latency"]))
+                        write("wireless_link_rxBytes{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxBytes"]))
+                        write("wireless_link_txBytes{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txBytes"]))
+                        write("wirlesss_link_rxSignal{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxSignal"]))
+                        write("wireless_link_txSignal{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txSignal"]))
 
         for iface in ifaces:
             name = iface['identification']['name']
@@ -214,4 +215,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
