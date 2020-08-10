@@ -30,7 +30,7 @@ else:
     UNMS_HOST = "unms.tomesh.net"
 
 
-VERSION = "0.2.1"
+VERSION = "0.3.0"
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -67,6 +67,7 @@ def find_device_id_by_name(name, devices):
             return dev["identification"]["id"]
     return ""
 
+
 def find_device_id_by_ip(ip, devices):
     for dev in devices:
         if dev["ipAddress"].split('/')[0] == ip:
@@ -79,7 +80,8 @@ def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
     Writes a string of prometheus data, using the passed JSON.
 
     devices: devices JSON, in Python format
-    ifaces: Interfaces JSON for the target (using the target's device id), in Python format.
+    ifaces:  Interfaces JSON for the target (using the target's device ID), in Python format.
+    airmax:  airmax JSON, using the target's device ID, in Python format.
 
     writer:
         Where data is written to. Any class with a write() method will work.
@@ -122,17 +124,16 @@ def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
             write("ubnt_stationsCount " + str(dev['overview']['stationsCount']))
 
         if airmax.get("airmax") is not None:
-            mode=airmax['airmax']['wirelessMode']
+            mode = airmax['airmax']['wirelessMode']
             write("ubnt_noiseFloor " + str(airmax['airmax']['noiseFloor']))
             write("ubnt_wlanRxBytes " + str(airmax['airmax']['wlanRxBytes']))
             write("ubnt_wlanTxBytes " + str(airmax['airmax']['wlanTxBytes']))
 
-            for int in airmax['interfaces']:
-                ifname=int['identification']['name']
-                ifmac=int['identification']['mac']
-                if int.get("stations") is not None:
-
-                    for stn in int["stations"]:
+            for iface in airmax['interfaces']:
+                ifname = iface['identification']['name']
+                ifmac = iface['identification']['mac']
+                if iface.get("stations") is not None:
+                    for stn in iface["stations"]:
                         write("wireless_link_uptime{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["uptime"]))
                         write("wireless_link_latency{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["latency"]))
                         write("wireless_link_receive_bytes_total{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxBytes"]))
