@@ -96,19 +96,19 @@ def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
             continue
 
         write('node_uname_info{nodename="' + dev['identification']['name'] + '", sysname="' +  dev['identification']['model'] + '", release="' +  dev['identification']['firmwareVersion'] + '"} 1')
-        write("ram " + str(dev['overview']['ram']))
-        write("cpu " + str(dev['overview']['cpu']))
-        write("uptime " + str(dev['overview']['uptime']))
+        write("node_cpu_ram " + str(dev['overview']['ram']))
+        write("node_cpu_usage " + str(dev['overview']['cpu']))
+        write("node_boot_time_seconds " + str(dev['overview']['uptime']))
 
         if dev['overview'].get('frequency') is not None:
-            write("frequency " + str(dev['overview']['frequency']))
+            write("wireless_frequency " + str(dev['overview']['frequency']))
 
         if dev['overview'].get("signal") is not None:
-            write("signal " + str(dev['overview']["signal"]))
+            write("wireless_signal " + str(dev['overview']["signal"]))
 
         if dev['overview'].get("downlinkCapacity") is not None:
-            write("downlinkCapacity " + str(dev['overview']['downlinkCapacity']))
-            write("uplinkCapacity " + str(dev['overview']['uplinkCapacity']))
+            write("ubnt_downlinkCapacity " + str(dev['overview']['downlinkCapacity']))
+            write("ubnt_uplinkCapacity " + str(dev['overview']['uplinkCapacity']))
 
         if dev['overview'].get("linkScore") is not None:
             write("ubnt_theoreticalUplinkCapacity " + str(dev['overview']['theoreticalUplinkCapacity']))
@@ -138,7 +138,7 @@ def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
                         write("ubnt_station_txBytes{name=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txBytes"]))
                         write("ubnt_station_rxSignal{name=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxSignal"]))
                         write("ubnt_station_txSignal{name=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txSignal"]))
-                        
+
         for iface in ifaces:
             name = iface['identification']['name']
 
@@ -153,7 +153,7 @@ def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
             write('node_network_transmit_rate{device="' + name + '"} ' + str(iface["statistics"]["txrate"]))
             write('node_network_mtu_bytes{device="' + name + '"} ' + str(iface["mtu"]))
             write('node_network_dropped_total{device="' + name + '"} ' + str(iface["statistics"]["dropped"]))  # Not sure whether receive or transmit, or both
-        
+
         # The target has been found and all data has been written
         break
 
@@ -214,3 +214,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
