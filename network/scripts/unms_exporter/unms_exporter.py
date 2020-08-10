@@ -135,10 +135,10 @@ def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
                     for stn in int["stations"]:
                         write("wireless_link_uptime{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["uptime"]))
                         write("wireless_link_latency{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["latency"]))
-                        write("wireless_link_rxBytes{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxBytes"]))
-                        write("wireless_link_txBytes{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txBytes"]))
-                        write("wirlesss_link_rxSignal{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxSignal"]))
-                        write("wireless_link_txSignal{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txSignal"]))
+                        write("wireless_link_receive_bytes_total{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxBytes"]))
+                        write("wireless_link_transmit_bytes_total{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txBytes"]))
+                        write("wirlesss_link_receive_signal{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["rxSignal"]))
+                        write("wireless_link_transmit_signal{type=\"" + mode + "\" device=\"" + ifname + "\" sourcemac=\"" + ifmac + "\" targetmac=\"" + stn["mac"] + "\"} " + str(stn["txSignal"]))
 
         for iface in ifaces:
             name = iface['identification']['name']
