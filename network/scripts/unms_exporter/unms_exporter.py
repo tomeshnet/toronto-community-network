@@ -30,7 +30,7 @@ else:
     UNMS_HOST = "unms.tomesh.net"
 
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -51,11 +51,22 @@ def get_ifaces_json(device_id):
     return r.json()
 
 
+def get_airmax_json(device_id):
+    """
+    Returns airmax JSON, for the device id provided.
+    """
+
+    r = requests.get("https://" + UNMS_HOST + "/nms/api/v2.1/devices/airmaxes/" + device_id + "?withStations=true", verify=False, headers=HEADERS, timeout=TIMEOUT)
+    r.raise_for_status()
+    return r.json()
+
+
 def find_device_id_by_name(name, devices):
     for dev in devices:
         if dev["identification"]["name"] == name:
             return dev["identification"]["id"]
     return ""
+
 
 def find_device_id_by_ip(ip, devices):
     for dev in devices:
@@ -64,12 +75,13 @@ def find_device_id_by_ip(ip, devices):
     return ""
 
 
-def write_prometheus_data(target_id, devices, ifaces, writer):
+def write_prometheus_data(target_id, devices, ifaces, airmax, writer):
     """
     Writes a string of prometheus data, using the passed JSON.
 
     devices: devices JSON, in Python format
-    ifaces: Interfaces JSON for the target (using the target's device id), in Python format.
+    ifaces:  Interfaces JSON for the target (using the target's device ID), in Python format.
+    airmax:  airmax JSON, using the target's device ID, in Python format.
 
     writer:
         Where data is written to. Any class with a write() method will work.
@@ -86,19 +98,48 @@ def write_prometheus_data(target_id, devices, ifaces, writer):
             continue
 
         write('node_uname_info{nodename="' + dev['identification']['name'] + '", sysname="' +  dev['identification']['model'] + '", release="' +  dev['identification']['firmwareVersion'] + '"} 1')
-        write("ram " + str(dev['overview']['ram']))
-        write("cpu " + str(dev['overview']['cpu']))
-        write("uptime " + str(dev['overview']['uptime']))
+        write("node_cpu_ram " + str(dev['overview']['ram']))
+        write("node_cpu_usage " + str(dev['overview']['cpu']))
+        write("node_boot_time_seconds " + str(dev['overview']['uptime']))
 
         if dev['overview'].get('frequency') is not None:
-            write("frequency " + str(dev['overview']['frequency']))
+            write("wireless_frequency " + str(dev['overview']['frequency']))
 
         if dev['overview'].get("signal") is not None:
-            write("signal " + str(dev['overview']["signal"]))
+            write("wireless_signal " + str(dev['overview']["signal"]))
 
         if dev['overview'].get("downlinkCapacity") is not None:
-            write("downlinkCapacity " + str(dev['overview']['downlinkCapacity']))
-            write("uplinkCapacity " + str(dev['overview']['uplinkCapacity']))
+            write("ubnt_downlinkCapacity " + str(dev['overview']['downlinkCapacity']))
+            write("ubnt_uplinkCapacity " + str(dev['overview']['uplinkCapacity']))
+
+        if dev['overview'].get("linkScore") is not None:
+            write("ubnt_theoreticalUplinkCapacity " + str(dev['overview']['theoreticalUplinkCapacity']))
+            write("ubnt_theoreticalDownlinkCapacity " + str(dev['overview']['theoreticalDownlinkCapacity']))
+            write("ubnt_theoreticalMaxUplinkCapacity " + str(dev['overview']['theoreticalMaxUplinkCapacity']))
+            write("ubnt_theoreticalMaxDownlinkCapacity " + str(dev['overview']['theoreticalMaxDownlinkCapacity']))
+
+            write("wireless_channelWidth " + str(dev['overview']['channelWidth']))
+            write("wireless_transmitPower " + str(dev['overview']['transmitPower']))
+
+            write("ubnt_stationsCount " + str(dev['overview']['stationsCount']))
+
+        if airmax.get("airmax") is not None:
+            mode = airmax['airmax']['wirelessMode']
+            write("ubnt_noiseFloor " + str(airmax['airmax']['noiseFloor']))
+            write("ubnt_wlanRxBytes " + str(airmax['airmax']['wlanRxBytes']))
+            write("ubnt_wlanTxBytes " + str(airmax['airmax']['wlanTxBytes']))
+
+            for iface in airmax['interfaces']:
+                ifname = iface['identification']['name']
+                ifmac = iface['identification']['mac']
+                if iface.get("stations") is not None:
+                    for stn in iface["stations"]:
+                        write('wireless_link_uptime{type="' + mode + '" device="' + ifname + '" sourcemac="' + ifmac + '" targetmac="' + stn["mac"] + '"} ' + str(stn["uptime"]))
+                        write('wireless_link_latency{type="' + mode + '" device="' + ifname + '" sourcemac="' + ifmac + '" targetmac="' + stn["mac"] + '"} ' + str(stn["latency"]))
+                        write('wireless_link_receive_bytes_total{type="' + mode + '" device="' + ifname + '" sourcemac="' + ifmac + '" targetmac="' + stn["mac"] + '"} ' + str(stn["rxBytes"]))
+                        write('wireless_link_transmit_bytes_total{type="' + mode + '" device="' + ifname + '" sourcemac="' + ifmac + '" targetmac="' + stn["mac"] + '"} ' + str(stn["txBytes"]))
+                        write('wirlesss_link_receive_signal{type="' + mode + '" device="' + ifname + '" sourcemac="' + ifmac + '" targetmac="' + stn["mac"] + '"} ' + str(stn["rxSignal"]))
+                        write('wireless_link_transmit_signal{type="' + mode + '" device="' + ifname + '" sourcemac="' + ifmac + '" targetmac="' + stn["mac"] + '"} ' + str(stn["txSignal"]))
 
         for iface in ifaces:
             name = iface['identification']['name']
@@ -114,7 +155,7 @@ def write_prometheus_data(target_id, devices, ifaces, writer):
             write('node_network_transmit_rate{device="' + name + '"} ' + str(iface["statistics"]["txrate"]))
             write('node_network_mtu_bytes{device="' + name + '"} ' + str(iface["mtu"]))
             write('node_network_dropped_total{device="' + name + '"} ' + str(iface["statistics"]["dropped"]))  # Not sure whether receive or transmit, or both
-        
+
         # The target has been found and all data has been written
         break
 
@@ -156,6 +197,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
                 return
 
             ifaces = get_ifaces_json(target_id)
+            airmax = get_airmax_json(target_id)
 
         except Exception as e:
             self.send_error(500, explain=e.__str__())
@@ -164,7 +206,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "text/plain")
         self.end_headers()
-        write_prometheus_data(target_id, devices, ifaces, self.wfile)
+        write_prometheus_data(target_id, devices, ifaces, airmax, self.wfile)
 
 
 def main():
