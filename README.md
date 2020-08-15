@@ -35,7 +35,7 @@ Plan, design, implement and maintain a well-functioning community network.
 ### Organizational and Program Governance [:busts_in_silhouette:](https://github.com/orgs/tomeshnet/teams/organizational-and-program-governance)
 Develop administrative processes ensuring Toronto Mesh meets their commitments.
 Attend to assets and resources.
-Assist in integrating and synthesizing priorities, plans and schedules across different disciplines and activities of the community network.
+Assist in integrating and synthesizing priorities, plans and schedules across different disciplines and activities to realize the mission of Toronto Mesh and the Toronto Community Network.
 Formalize relationships and agreements with and within the community network.
 
 | Spaces      |   |
