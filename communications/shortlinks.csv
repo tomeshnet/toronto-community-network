@@ -2,11 +2,12 @@ keyword,destination_url
 shortlinks,https://github.com/tomeshnet/toronto-community-network/blob/master/communications/shortlinks.csv
 cloud,https://cloud.tomesh.net
 github,https://github.com/tomeshnet
-gh,https://link.tomesh.net/tomeshnet
+gh,https://github.com/tomeshnet
 chat,https://chat.tomesh.net/#/room/#tomesh:tomesh.net
 tasks,https://github.com/tomeshnet/toronto-community-network/projects/1
 new-task,https://github.com/tomeshnet/toronto-community-network/issues/new?template=task_template.md
 teams,https://github.com/orgs/tomeshnet/teams
 passwords,https://pass.tomesh.net
-calls,https://bbb.hypha.coop/b/tom-v6m-hyj
-general-calls,https://bbb.hypha.coop/b/tom-ygc-ttm
+wg-call,https://bbb.hypha.coop/b/tom-v6m-hyj
+pub-call,https://bbb.hypha.coop/b/tom-ygc-ttm
+public-call,https://bbb.hypha.coop/b/tom-ygc-ttm
