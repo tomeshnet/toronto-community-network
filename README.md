@@ -40,7 +40,7 @@ Formalize relationships and agreements with and within the community network.
 
 | Spaces      |   |
 |:------------|:--|
-| Meetings    | Saturday 1pm ET biweekly ([`calendar`][calendar] [`iCal`][iCal] [`time poll`](https://www.when2meet.com/?9397736-b9JNO)) |
+| Meetings    | Monday 6pm ET weekly ([`calendar`][calendar] [`iCal`][iCal] [`time poll`](https://www.when2meet.com/?9397736-b9JNO)) |
 | Group Email | governance@tomesh.net |
 | Chat        | [#governance:tomesh.net](https://chat.tomesh.net/#/room/#governance:tomesh.net) |
 | Tasks       | [`governance`](https://github.com/tomeshnet/toronto-community-network/projects/1?card_filter_query=label%3Agovernance) label |
