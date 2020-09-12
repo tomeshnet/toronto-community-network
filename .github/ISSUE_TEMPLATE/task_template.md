@@ -15,7 +15,7 @@ assignees: ''
 📅 **Due date:** N/A
 🎯 **Success criteria:**
 ❌ **Blocked on:** 
-👈**Depends on:**
+👈**Depends by:**
 
 [MAIN TEXT HERE]
 
