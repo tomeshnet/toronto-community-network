@@ -1,6 +1,6 @@
 ---
-name: Task
-about: Create an organizational mesh-deployment task
+name: General task
+about: Create an organizational toronto community network  task
 title: ''
 labels: ''
 assignees: ''
@@ -14,6 +14,8 @@ assignees: ''
 🎟️ **Re-ticketed from:** #
 📅 **Due date:** N/A
 🎯 **Success criteria:**
+❌ **Blocked on:** 
+👈**Depends on:**
 
 [MAIN TEXT HERE]
 
