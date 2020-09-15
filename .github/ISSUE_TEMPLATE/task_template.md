@@ -14,8 +14,8 @@ assignees: ''
 🎟️ **Re-ticketed from:** #
 📅 **Due date:** N/A
 🎯 **Success criteria:**
-❌ **Blocked on:** 
-👈**Depends by:**
+❌ **Blocked by:** 
+👈**Depends on:**
 
 [MAIN TEXT HERE]
 
