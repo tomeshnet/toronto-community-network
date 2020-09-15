@@ -1,6 +1,6 @@
 ---
 name: General task
-about: Create an organizational toronto community network  task
+about: Create an organizational Toronto Community Network  task
 title: ''
 labels: ''
 assignees: ''
