@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Telephone number (647-812-4772) to place on a sticker on the back of all hardware. Used to identfy roof top hardware as belonging to Toronto Mesh and provides a method for building owners to contact us about the equipment when questions arise.
+Telephone number (647-812-4772) to place on a sticker on the back of all hardware. Used to identify roof top hardware as belonging to Toronto Mesh and provides a method for building owners to contact us about the equipment when questions arise.
 
 ## Service List
 
@@ -14,7 +14,7 @@ _A list of all hardware and the prices from specific vendors we plan to order fr
 
 - Service is pre-paid
 - Prices in USD
-- Minimum Deposit is beleave about $20.00-25.00 USD
+- Minimum Deposit is about $20.00-25.00 USD
 - Service is 0.85/month + usage
 - Deposit should last us for over 2 years.
 
