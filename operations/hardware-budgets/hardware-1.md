@@ -4,18 +4,20 @@
 
 _What is the hardware for? If this is related to a particular deployment and require approval by a specific date, please mention it here._
 
-Hardware that is projected to be required for SN2 SN3 and SN4.
+Hardware that is projected to be required for SN2 and SN3.
 
 ## Hardware List
 
 _A list of all hardware items and the prices from specific vendors we plan to order from._
 
-| Item       | Vendor     | Price | Currency | Quantity |
-|:-----------|:-----------|------:|---------:|---------:|
-| ER-X-SFP   | CDW |  90  |      CAD |        9 |
-| LBE-AC5    | CDW |  86  |      CAD |       12 |
-| LAP-120    | CDW |  90  |      CAD |       14 |
-| ToughCable | CDW |  163 |      CAD |        4 |
+| Item        | Vendor     | Price  | Currency | Quantity |
+|:------------|:-----------|-------:|---------:|---------:|
+| ER-X-SFP    | CDW        |  100   |   CAD    |        7 |
+| PBE-5AC-GEN2| CDW        |  145   |   CAD    |        2 |
+| NBE-5AC-Gen2| CDW        |  115   |   CAD    |        6 |
+| LocoAC5     | CDW        |   57   |   CAD    |        4 |
+| LAP-GPS     | CDW        |  150   |   CAD    |       11 |
+| ToughCable  | CDW        |  190   |   CAD    |        5 |
 
 ## Budget Requested
 
@@ -23,11 +25,11 @@ _The Administrators acknowledge that final reimbursement amounts may differ due 
 
 | Budget    | Estimate (CAD) |
 |:----------|---------------:|
-| Hardware  |        3937.00 |
-| Shipping  |          50.00 |
+| Hardware  |        4508.00 |
+| Shipping  |           0.00 |
 | Duties    |           0.00 |
-| Taxes     |        518.311 |
-| **Total** |        4505.31 |
+| Taxes     |         586.04 |
+| **Total** |        5094.04 |
 
 ## Sign-off
 
