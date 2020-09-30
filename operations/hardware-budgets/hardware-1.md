@@ -40,7 +40,7 @@ _The Administrators acknowledge that final reimbursement amounts may differ due 
 _The sign-off should include at least one experienced member in the Network working group._
 
 Members of Network Planning, Design and Operations:
-- Yurko
+- @yurkowashere
 - Member 2
 
 Grant Administrators:
