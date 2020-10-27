@@ -35,6 +35,6 @@ Members of Network Planning, Design and Operations:
 
 Grant Administrators:
 - @YurkoWasHere
-- Administrator 2
+- @TimTor
 - Administrator 3
 - Administrator 4
