@@ -10,7 +10,7 @@ _A list of all hardware items and the prices from specific vendors we plan to or
 
 | Item   | Vendor   | Price | Currency | Quantity |
 |:-------|:---------|------:|---------:|---------:|
-| EP P6  | PC-Canada| 137.99|      CAD |        4 |
+| EP P6  | PC-Canada| 137.99|      CAD |        5 |
 
 
 ## Budget Requested
@@ -19,11 +19,11 @@ _The Administrators acknowledge that final reimbursement amounts may differ due 
 
 | Budget    | Estimate (CAD) |
 |:----------|---------------:|
-| Hardware  |         551.95 |
+| Hardware  |         689.95 |
 | Shipping  |          15.00 |
 | Duties    |           0.00 |
-| Taxes     |          71.75 |
-| **Total** |         638.70 |
+| Taxes     |          89.69 |
+| **Total** |         779.64 |
 
 ## Sign-off
 
