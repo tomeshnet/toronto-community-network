@@ -31,7 +31,7 @@ _The sign-off should include at least one experienced member in the Network work
 
 Members of Network Planning, Design and Operations:
 - @YurkoWasHere
-- Member 2
+- @ASoTNetworks
 
 Grant Administrators:
 - @YurkoWasHere
