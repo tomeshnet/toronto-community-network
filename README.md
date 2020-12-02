@@ -5,12 +5,7 @@
 >– Cumbre Latinoamericana de Redes Comunitarias, Argentina 2018
 
 We are building a community network in Toronto alongside our collaborators.
-See our [proposal brief](https://github.com/tomeshnet/toronto-community-network/blob/master/operations/published-documents/Brief-v002.pdf) and [full in-draft proposal](https://github.com/tomeshnet/toronto-community-network/blob/master/operations/published-documents/proposal-draft-v003.pdf) for details.
-
-## Project Management
-
-We use [Teams](https://github.com/orgs/tomeshnet/teams/toronto-community-network/teams) to manage membership of working groups and [Projects](https://github.com/tomeshnet/toronto-community-network/projects/1) to track task status on a public project board.
-See [our operations documents](https://docs.tomesh.net/operations/main.html) for details.
+See our [project proposal](https://github.com/tomeshnet/toronto-community-network/blob/master/operations/published-documents/) and [operations documents](https://docs.tomesh.net/operations/main.html) for details.
 
 ## Get Involved
 
