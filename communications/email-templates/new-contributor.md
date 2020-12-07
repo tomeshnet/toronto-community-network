@@ -8,7 +8,7 @@ Thanks for getting in touch :)
 
 Toronto Mesh has a [Code of Conduct](https://tomesh.net/code-of-conduct/) to help ensure we can work in a positive environment. Since you have indicated interest in contributing to the Toronto Community Network project, please familiarize and adhere to this Code.
 
-The Toronto Community Network project is run by four working groups, which you can [read about here](https://github.com/tomeshnet/toronto-community-network/blob/master/README.md). As a contributor, you will join one or more groups of your choice, which involves a commitment to participate in regular meetings and in the project spaces, and to help further the group's objectives with other group members.
+The Toronto Community Network project is run by four working groups, which you can [read about here](https://docs.tomesh.net/operations/working-groups.html). As a contributor, you will join one or more groups of your choice, which involves a commitment to participate in regular meetings and in the project spaces, and to help further the group's objectives with other group members.
 
 **Step 1** We use GitHub as a place to keep our files, and to track who is working on which project tasks. You can find tasks associated with each working group [here](https://github.com/tomeshnet/toronto-community-network/projects/1) for an idea of how this works. Please register on GitHub and send us your username so we can invite you to the working group(s).
 
