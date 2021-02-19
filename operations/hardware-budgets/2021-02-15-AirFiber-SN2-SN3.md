@@ -13,6 +13,7 @@ _A list of all hardware items and the prices from specific vendors we plan to or
 |:----------------------------|:--------------------|--------:|---------:|---------:|
 | AF-5G30-S45 Anteanna        | Lakeside Technology |  300.00 |      CAD |        2 |
 | airFiber 5XHD AF-5XHD Radio | Lakeside Technology |  950.00 |      CAD |        2 |
+| Edge Router SFP             | Deploy Depot        |  280.00 |      CAD |        2 |
 
 ## Budget Requested
 
@@ -20,11 +21,11 @@ _The Administrators acknowledge that final reimbursement amounts may differ due 
 
 | Budget    | Estimate (CAD) |
 |:----------|---------------:|
-| Hardware  |        1250.00 |
-| Shipping  |          50.00 |
+| Hardware  |        1530.00 |
+| Shipping  |          70.00 |
 | Duties    |           0.00 |
-| Taxes     |          169.00|
-| **Total** |        1469.00 |
+| Taxes     |          208.00|
+| **Total** |        1808.00 |
 
 ## Sign-off
 
