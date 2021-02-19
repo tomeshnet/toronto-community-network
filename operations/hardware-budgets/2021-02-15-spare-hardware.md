@@ -10,10 +10,12 @@ Pair of LAP-120 Antennas to have in stock as backup.
 
 _A list of all hardware items and the prices from specific vendors we plan to order from._
 
-| Item      | Vendor   | Price  | Currency | Quantity |
-|:----------|:---------|------ :|---------:|---------:|
-| LAP-120   | PC Canada|   230  |      CAD |        2 |
-| NBE-5g-AC | PC Canada|   230  |      CAD |        2 |
+| Item                        | Vendor              | Price   | Currency | Quantity |
+|:----------------------------|:--------------------|--------:|---------:|---------:|
+| LAP-120                     | PC-Canada           |  230.00 |      CAD |        2 |
+| NBE-5g-AC                   | Lakeside Technology |  230.00 |      CAD |        2 |
+
+
 
 
 ## Budget Requested
