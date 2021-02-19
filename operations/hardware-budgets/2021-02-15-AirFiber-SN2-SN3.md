@@ -11,7 +11,7 @@ _A list of all hardware items and the prices from specific vendors we plan to or
 
 | Item                        | Vendor              | Price   | Currency | Quantity |
 |:----------------------------|:--------------------|--------:|---------:|---------:|
-| AF-5G30-S45 Anteanna        | Lakeside Technology |  300.00 |      CAD |        2 |
+| AF-5G23-S45 Anteanna        | Lakeside Technology |  300.00 |      CAD |        2 |
 | airFiber 5XHD AF-5XHD Radio | Lakeside Technology |  950.00 |      CAD |        2 |
 | Edge Router SFP             | Deploy Depot        |  280.00 |      CAD |        2 |
 
