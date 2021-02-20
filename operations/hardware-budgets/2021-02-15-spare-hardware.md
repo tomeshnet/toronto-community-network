@@ -14,6 +14,7 @@ _A list of all hardware items and the prices from specific vendors we plan to or
 |:----------------------------|:--------------------|--------:|---------:|---------:|
 | LAP-120                     | PC-Canada           |  230.00 |      CAD |        2 |
 | NBE-5g-AC                   | Lakeside Technology |  230.00 |      CAD |        2 |
+| ER-X SFP                    | Lakeside Technology |  230.00 |      CAD |        2 |
 
 
 
@@ -24,11 +25,11 @@ _The Administrators acknowledge that final reimbursement amounts may differ due 
 
 | Budget    | Estimate (CAD) |
 |:----------|---------------:|
-| Hardware  |         460.00 |
+| Hardware  |         690.00 |
 | Shipping  |          50.00 |
 | Duties    |           0.00 |
-| Taxes     |          66.30 |
-| **Total** |         576.30 |
+| Taxes     |          96.30 |
+| **Total** |         836.20 |
 
 ## Sign-off
 
