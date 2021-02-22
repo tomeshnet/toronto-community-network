@@ -1,4 +1,4 @@
-# YYYY-MM-DD Hardware Budget for Toronto Community Network
+# 2021-02-15 Hardware Budget for Toronto Community Network
 
 ## Purpose
 
