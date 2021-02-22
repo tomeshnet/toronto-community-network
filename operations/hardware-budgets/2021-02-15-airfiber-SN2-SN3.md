@@ -11,7 +11,7 @@ _A list of all hardware items and the prices from specific vendors we plan to or
 
 | Item                        | Vendor              | Price   | Currency | Quantity |
 |:----------------------------|:--------------------|--------:|---------:|---------:|
-| AF-5G30-S45 Anteanna        | Lakeside Technology |  300.00 |      CAD |        2 |
+| AF-5G23-S45 Anteanna        | Lakeside Technology |  300.00 |      CAD |        2 |
 | airFiber 5XHD AF-5XHD Radio | Lakeside Technology |  950.00 |      CAD |        2 |
 | Edge Router SFP             | Deploy Depot        |  280.00 |      CAD |        2 |
 
@@ -32,11 +32,11 @@ _The Administrators acknowledge that final reimbursement amounts may differ due 
 _The sign-off should include at least one experienced member in the Network working group._
 
 Members of Network Planning, Design and Operations:
-- Member 1
-- Member 2
+- Pedro-on-a-bike
+- @ASoTNetworks
 
 Grant Administrators:
-- Administrator 1
-- Administrator 2
-- Administrator 3
+- @YurkoWashere
+- @benhylau
+- @TimTor
 - Administrator 4

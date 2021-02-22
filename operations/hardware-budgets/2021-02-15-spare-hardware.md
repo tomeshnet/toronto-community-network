@@ -1,4 +1,4 @@
-# YYYY-MM-DD Hardware Budget for Toronto Community Network
+# 2021-02-15 Hardware Budget for Toronto Community Network
 
 ## Purpose
 
@@ -10,9 +10,13 @@ Pair of LAP-120 Antennas to have in stock as backup.
 
 _A list of all hardware items and the prices from specific vendors we plan to order from._
 
-| Item   | Vendor   | Price  | Currency | Quantity |
-|:-------|:---------|------ :|---------:|---------:|
-| LAP-120| PC Canada|   230  |      CAD |        2 |
+| Item                        | Vendor              | Price   | Currency | Quantity |
+|:----------------------------|:--------------------|--------:|---------:|---------:|
+| LAP-120                     | PC-Canada           |  230.00 |      CAD |        2 |
+| NBE-5g-AC                   | Lakeside Technology |  230.00 |      CAD |        2 |
+| ER-X SFP                    | Lakeside Technology |  230.00 |      CAD |        2 |
+
+
 
 
 ## Budget Requested
@@ -21,22 +25,22 @@ _The Administrators acknowledge that final reimbursement amounts may differ due 
 
 | Budget    | Estimate (CAD) |
 |:----------|---------------:|
-| Hardware  |         230.00 |
+| Hardware  |         690.00 |
 | Shipping  |          50.00 |
 | Duties    |           0.00 |
-| Taxes     |          36.40 |
-| **Total** |         316.40 |
+| Taxes     |          96.30 |
+| **Total** |         836.20 |
 
 ## Sign-off
 
 _The sign-off should include at least one experienced member in the Network working group._
 
 Members of Network Planning, Design and Operations:
-- Member 1
-- Member 2
+- Pedro-on-a-bike
+- @ASoTNetworks
 
 Grant Administrators:
-- Administrator 1
-- Administrator 2
-- Administrator 3
+- @YurkoWasHere
+- @benhylau
+- @TimTor
 - Administrator 4
