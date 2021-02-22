@@ -33,7 +33,7 @@ _The sign-off should include at least one experienced member in the Network work
 
 Members of Network Planning, Design and Operations:
 - Pedro-on-a-bike
-- Member 2
+- @ASoTNetworks
 
 Grant Administrators:
 - @YurkoWashere
