@@ -1,0 +1,78 @@
+#!/bin/sh
+printf "Content-type: text/html\n\n"
+
+echo "node_uname_info{domainname=\"(none)\",machine=\"$(uname -m)\",nodename=\"$(uci get system.@system[0].hostname)\",release=\"$(uname -r)\",sysname=\"Linux\",version=\"$(uname -v)\"} 1"
+
+#CPU
+IFS=$'\n';
+for tbl in $( cat /proc/stat  | grep cpu | grep -v cpu\ )
+do
+   cpu=$(echo $tbl | awk '{print $1}' | sed s/cpu//)
+   echo "node_cpu_seconds_total{cpu=\"$cpu\",mode=\"user\"} $(echo $tbl | awk '{printf "%i\n", $2/100}')"
+   echo "node_cpu_seconds_total{cpu=\"$cpu\",mode=\"nice\"} $(echo $tbl | awk '{printf "%i\n", $3/100}')"
+   echo "node_cpu_seconds_total{cpu=\"$cpu\",mode=\"system\"} $(echo $tbl | awk '{printf "%i\n", $4/100}')"
+   echo "node_cpu_seconds_total{cpu=\"$cpu\",mode=\"idle\"} $(echo $tbl | awk '{printf "%i\n", $5/100}')"
+   echo "node_cpu_seconds_total{cpu=\"$cpu\",mode=\"iowait\"} $(echo $tbl | awk '{printf "%i\n", $6/100}')"
+   echo "node_cpu_seconds_total{cpu=\"$cpu\",mode=\"irq\"} $(echo $tbl | awk '{printf "%i\n", $7/100}')"
+   echo "node_cpu_seconds_total{cpu=\"$cpu\",mode=\"softirq\"} $(echo $tbl | awk '{printf "%i\n", $8/100}')"
+done
+IFS=" ";
+
+IFS=$'\n';
+for tbl in $( cat /proc/meminfo )
+do
+   echo "node_memory_$(echo $tbl | awk -F ":" '{print $1}' | tr \( _ | tr -d \) )_bytes $(($(echo $tbl | awk -F ":" '{print $2}' | awk '{print $1}')*100))"
+done
+IFS=' ';
+
+#FS
+IFS=$'\n'
+for tbl in $( df -T | grep -v Filesystem );
+do
+    BYTES=$(echo $tbl | awk '{print $3}');
+    USED=$(echo $tbl | awk '{print $4}');
+    MOUNT=$(echo $tbl | awk '{print $7}');
+    FS=$(echo $tbl | awk '{print $2}');
+    DEV=$(echo $tbl | awk '{print $1}');
+    echo "node_filesystem_size_bytes{device=\"$DEV\",fstype=\"$FS\",mountpoint=\"$MOUNT\"} $(($BYTES * 1024))";
+    echo "node_filesystem_avail_bytes{device=\"$DEV\",fstype=\"$FS\",mountpoint=\"$MOUNT\"} $(((BYTES - USED) * 1024))";
+    echo "node_filesystem_free_bytes{device=\"$DEV\",fstype=\"$FS\",mountpoint=\"$MOUNT\"} $(((BYTES - USED) * 1024))";
+done
+IFS=' '
+
+# NETWORK
+for net in /sys/class/net/*; do
+   int="$(basename "$net")"
+   echo node_network_receive_bytes_total{device=\"$int\"} $(cat /sys/class/net/$int/statistics/rx_bytes)
+   echo node_network_transmit_bytes_total{device=\"$int\"} $(cat /sys/class/net/$int/statistics/tx_bytes)
+   echo node_network_receive_packets_total{device=\"$int\"} $(cat /sys/class/net/$int/statistics/rx_packets)
+   echo node_network_transmit_packets_total{device=\"$int\"} $(cat /sys/class/net/$int/statistics/tx_packets)
+   echo node_network_receive_errs_total{device=\"$int\"} $(cat /sys/class/net/$int/statistics/rx_errors)
+   echo node_network_transmit_errs_total{device=\"$int\"} $(cat /sys/class/net/$int/statistics/tx_errors)
+   echo node_network_receive_drop_total{device=\"$int\"} $(cat /sys/class/net/$int/statistics/rx_dropped)
+   echo node_network_transmit_drop_total{device=\"$int\"} $(cat /sys/class/net/$int/statistics/tx_dropped)
+
+  if [ -d "/sys/class/net/$int/wireless" ]; then
+     type="$(iw $int info | grep type | awk '{print $2}')"
+    mac="$(cat /sys/class/net/$int/address)"
+    channel="$(iw $int info | grep channel | awk '{print $2}')"
+    if [ -z "$channel" ]; then
+       channel=0
+    fi
+    echo wireless_channel{device=\"$int\",type=\"$type\"} $channel
+    for ST in $(iw $int station dump | grep Station  | awk '{print $2}')
+    do
+      res=$(iw $int station dump | grep -A 15 $ST | grep rx\ bytes | awk '{print $3}')
+      echo wireless_link_receive_bytes_total{sourcemac=\"$mac\",device=\"$int\",targetmac=\"$ST\"} $res
+      res=$(iw $int station dump | grep -A 15 $ST | grep tx\ bytes | awk '{print $3}')
+      echo wireless_link_transmit_bytes_total{sourcemac=\"$mac\",device=\"$int\",targetmac=\"$ST\"} $res
+      res=$(iw $int station dump | grep -A 15 $ST | grep signal\: | awk '{print $2}')
+      echo wireless_link_receive_signal{sourcemac=\"$mac\",device=\"$int\",targetmac=\"$ST\"} $res
+    done
+  fi
+
+done
+cat /proc/loadavg | awk '{print "node_load1 "$1"\nnode_load5 "$2"\nnode_load15 "$3}'
+
+echo node_time_seconds $(date +%s)
+cat /proc/uptime | awk '{print "node_boot_time_seconds "$1*100}'
