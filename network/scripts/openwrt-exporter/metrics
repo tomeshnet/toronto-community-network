@@ -77,5 +77,6 @@ cat /proc/loadavg | awk '{print "node_load1 "$1"\nnode_load5 "$2"\nnode_load15 "
 currentdate=$(date +%s)
 echo node_time_seconds $currentdate
 uptime=$(cat /proc/uptime | awk '{print $1}')
+uptime=${uptime%.*}
 boottime=$((currentdate-uptime))
 echo node_boot_time_seconds $boottime
